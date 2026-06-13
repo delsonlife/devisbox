@@ -5,8 +5,10 @@
       "name": "Couverture Paris Pro",
       "domain": "devis-couvreur1.vercel.app",
       "email": "contact@couvreur-paris.fr",
-      "phone": "01 23 45 67 89"
-    },
+      "phone": "01 23 45 67 89",
+    "allowedOrigins": [
+      "https://devis-couvreur1.vercel.app"
+    ],
     "branding": {
       "primaryColor": "#ff6b00",
       "secondaryColor": "#1a1a2e",
