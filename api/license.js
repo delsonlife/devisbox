@@ -39,9 +39,19 @@ module.exports = async (req, res) => {
 
   const requestDomain = extractDomain(origin);
   const allowedDomain = config.company.domain.replace(/^www\./, "");
-  const isLocal = !requestDomain || ["localhost", "127.0.0.1"].includes(requestDomain) || requestDomain.endsWith(".vercel.app");
 
-  if (!isLocal && requestDomain !== allowedDomain) {
+  // Domaines toujours autorisés : local dev + votre propre hébergeur
+  const OWNER_DOMAINS = [
+    "devisbox.vercel.app",   // votre domaine Vercel principal
+    "localhost",
+    "127.0.0.1",
+  ];
+
+  const isOwnerOrLocal = !requestDomain || OWNER_DOMAINS.includes(requestDomain);
+  const isClientDomain = requestDomain === allowedDomain;
+
+  if (!isOwnerOrLocal && !isClientDomain) {
+    console.warn(`[license] Domain mismatch — expected: ${allowedDomain}, got: ${requestDomain}`);
     return res.status(403).json({ error: "Domain not authorized" });
   }
 
