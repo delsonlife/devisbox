@@ -1,0 +1,11 @@
+{
+  "name": "widget-devis",
+  "version": "2.0.0",
+  "description": "Moteur de devis universel multi-métiers",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "build": "echo ok"
+  },
+  "engines": { "node": "20.x" }
+}
