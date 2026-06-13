@@ -1,326 +1,72 @@
-{
-  "ABC123": {
-    "active": true,
-    "company": {
-      "name": "Couverture Paris Pro",
-      "domain": "devis-couvreur1.vercel.app",
-      "email": "contact@couvreur-paris.fr",
-      "phone": "01 23 45 67 89"
-    },
-    "allowedOrigins": [
-      "https://devis-couvreur1.vercel.app",
-      "https://devisbox.vercel.app"
-    ],
-    "branding": {
-      "primaryColor": "#ff6b00",
-      "secondaryColor": "#1a1a2e",
-      "logo": null
-    },
-    "trade": "roofing",
-    "calculator": "roof_v1",
-    "questions": [
-      {
-        "id": "project",
-        "type": "cards",
-        "label": "Quel est votre projet ?",
-        "subtitle": "Selectionnez le type de travaux souhaite.",
-        "required": true,
-        "options": [
-          { "value": "renovation", "label": "Refection complete", "icon": "hard-hat" },
-          { "value": "repair",     "label": "Reparation",         "icon": "wrench" },
-          { "value": "cleaning",   "label": "Demolissage",        "icon": "brush" },
-          { "value": "insulation", "label": "Isolation toiture",  "icon": "layers" }
-        ]
-      },
-      {
-        "id": "material",
-        "type": "cards",
-        "label": "Quel materiau ?",
-        "subtitle": "Choisissez le type de couverture de votre toit.",
-        "required": true,
-        "columns": 2,
-        "options": [
-          { "value": "tuile",     "label": "Tuile",     "icon": "home" },
-          { "value": "ardoise",   "label": "Ardoise",   "icon": "grid" },
-          { "value": "zinc",      "label": "Zinc",      "icon": "box" },
-          { "value": "bac_acier", "label": "Bac acier", "icon": "server" }
-        ]
-      },
-      {
-        "id": "surface",
-        "type": "slider",
-        "label": "Surface estimee du toit",
-        "subtitle": "Deplacez le curseur pour ajuster la surface.",
-        "required": true,
-        "min": 20,
-        "max": 500,
-        "step": 5,
-        "default": 100,
-        "unit": "m2"
-      },
-      {
-        "id": "pans",
-        "type": "cards",
-        "label": "Nombre de pans",
-        "subtitle": "Un pan = une face inclinee du toit.",
-        "required": true,
-        "columns": 2,
-        "options": [
-          { "value": "1",    "label": "1 pan",     "icon": "triangle" },
-          { "value": "2",    "label": "2 pans",    "icon": "home" },
-          { "value": "4",    "label": "4 pans",    "icon": "square" },
-          { "value": "more", "label": "Plus de 4", "icon": "plus-square" }
-        ]
-      },
-      {
-        "id": "accessibility",
-        "type": "cards",
-        "label": "Accessibilite du chantier",
-        "subtitle": "Le niveau influence le cout installation.",
-        "required": true,
-        "options": [
-          { "value": "plain-pied", "label": "Plain-pied",       "icon": "home" },
-          { "value": "1-etage",    "label": "1 etage",          "icon": "arrow-up" },
-          { "value": "2-etages",   "label": "2 etages",         "icon": "chevrons-up" },
-          { "value": "plus",       "label": "Plus de 2 etages", "icon": "building" }
-        ]
-      },
-      {
-        "id": "options",
-        "type": "multi",
-        "label": "Options souhaitees",
-        "subtitle": "Selectionnez tout ce qui s'applique (optionnel).",
-        "required": false,
-        "options": [
-          { "value": "velux",      "label": "Velux",                   "icon": "sun" },
-          { "value": "gouttieres", "label": "Gouttieres",              "icon": "droplet" },
-          { "value": "isolation",  "label": "Isolation",               "icon": "layers" },
-          { "value": "depose",     "label": "Depose ancienne toiture", "icon": "trash" },
-          { "value": "charpente",  "label": "Traitement charpente",    "icon": "tool" }
-        ]
-      },
-      {
-        "id": "postalCode",
-        "type": "postal",
-        "label": "Votre code postal",
-        "subtitle": "Il nous permet d'appliquer les tarifs regionaux.",
-        "required": true,
-        "placeholder": "75001"
-      }
-    ],
-    "pricing": {
-      "base": {
-        "tuile": 95, "ardoise": 145, "zinc": 180, "bac_acier": 110
-      },
-      "project_multiplier": {
-        "renovation": 1.0, "repair": 0.35, "cleaning": 0.15, "insulation": 0.45
-      },
-      "pan_multiplier": { "1": 0.9, "2": 1.0, "4": 1.15, "more": 1.3 },
-      "floor_multiplier": {
-        "plain-pied": 1.0, "1-etage": 1.1, "2-etages": 1.2, "plus": 1.35
-      },
-      "options": {
-        "velux": 850, "gouttieres": 45, "isolation": 35, "depose": 12, "charpente": 28
-      },
-      "regional_coefficients": { "75": 1.25, "69": 1.1, "13": 1.05, "default": 1.0 },
-      "margin_low": 0.92,
-      "margin_high": 1.18
-    }
-  },
+// api/lead.js
+const fs   = require("fs");
+const path = require("path");
 
-  "MOV001": {
-    "active": true,
-    "company": {
-      "name": "Demenagement Express",
-      "domain": "demenagement-express.fr",
-      "email": "contact@demenagement-express.fr",
-      "phone": "06 12 34 56 78"
-    },
-    "allowedOrigins": [
-      "https://demenagement-express.fr",
-      "https://devisbox.vercel.app"
-    ],
-    "branding": {
-      "primaryColor": "#2563eb",
-      "secondaryColor": "#0f172a",
-      "logo": null
-    },
-    "trade": "moving",
-    "calculator": "moving_v1",
-    "questions": [
-      {
-        "id": "volume",
-        "type": "cards",
-        "label": "Volume a demenager",
-        "subtitle": "Estimez la taille de votre logement actuel.",
-        "required": true,
-        "options": [
-          { "value": "studio", "label": "Studio / F1",  "icon": "home" },
-          { "value": "f2",     "label": "F2 / F3",      "icon": "home" },
-          { "value": "f4",     "label": "F4 / F5",      "icon": "building" },
-          { "value": "maison", "label": "Grande maison", "icon": "building" }
-        ]
-      },
-      {
-        "id": "distance",
-        "type": "slider",
-        "label": "Distance du demenagement",
-        "subtitle": "Distance approximative entre les deux adresses.",
-        "required": true,
-        "min": 5,
-        "max": 1000,
-        "step": 5,
-        "default": 50,
-        "unit": "km"
-      },
-      {
-        "id": "floor_from",
-        "type": "cards",
-        "label": "Etage au depart",
-        "subtitle": "Y a-t-il un ascenseur ?",
-        "required": true,
-        "columns": 2,
-        "options": [
-          { "value": "rdc",      "label": "Rez-de-chaussee", "icon": "home" },
-          { "value": "avec_asc", "label": "Avec ascenseur",  "icon": "arrow-up" },
-          { "value": "sans_asc", "label": "Sans ascenseur",  "icon": "chevrons-up" },
-          { "value": "plus4",    "label": "+ 4 etages",      "icon": "building" }
-        ]
-      },
-      {
-        "id": "options",
-        "type": "multi",
-        "label": "Services supplementaires",
-        "subtitle": "Optionnel.",
-        "required": false,
-        "options": [
-          { "value": "emballage", "label": "Emballage complet",   "icon": "box" },
-          { "value": "piano",     "label": "Piano / coffre-fort", "icon": "music" },
-          { "value": "garde",     "label": "Garde-meuble",        "icon": "lock" },
-          { "value": "montage",   "label": "Montage meubles",     "icon": "tool" }
-        ]
-      },
-      {
-        "id": "postalCode",
-        "type": "postal",
-        "label": "Code postal de depart",
-        "subtitle": "Pour adapter les tarifs a votre region.",
-        "required": true,
-        "placeholder": "75001"
-      }
-    ],
-    "pricing": {
-      "base_by_volume": {
-        "studio": 400, "f2": 700, "f4": 1100, "maison": 1800
-      },
-      "distance_rate": 1.8,
-      "floor_multiplier": {
-        "rdc": 1.0, "avec_asc": 1.05, "sans_asc": 1.2, "plus4": 1.35
-      },
-      "options": {
-        "emballage": 250, "piano": 350, "garde": 180, "montage": 120
-      },
-      "regional_coefficients": { "75": 1.2, "69": 1.05, "default": 1.0 },
-      "margin_low": 0.9,
-      "margin_high": 1.2
-    }
-  },
-
-  "WIN001": {
-    "active": true,
-    "company": {
-      "name": "Menuiserie Leblanc",
-      "domain": "menuiserie-leblanc.fr",
-      "email": "contact@menuiserie-leblanc.fr",
-      "phone": "04 56 78 90 12"
-    },
-    "allowedOrigins": [
-      "https://menuiserie-leblanc.fr",
-      "https://devisbox.vercel.app"
-    ],
-    "branding": {
-      "primaryColor": "#059669",
-      "secondaryColor": "#064e3b",
-      "logo": null
-    },
-    "trade": "windows",
-    "calculator": "windows_v1",
-    "questions": [
-      {
-        "id": "type",
-        "type": "cards",
-        "label": "Type de menuiserie",
-        "subtitle": "Quel type d'ouvrant souhaitez-vous ?",
-        "required": true,
-        "columns": 2,
-        "options": [
-          { "value": "fenetre", "label": "Fenetre",        "icon": "square" },
-          { "value": "porte",   "label": "Porte d'entree", "icon": "home" },
-          { "value": "baie",    "label": "Baie vitree",    "icon": "maximize" },
-          { "value": "velux",   "label": "Velux",          "icon": "sun" }
-        ]
-      },
-      {
-        "id": "quantity",
-        "type": "slider",
-        "label": "Nombre d'ouvertures",
-        "subtitle": "Combien d'unites souhaitez-vous remplacer ?",
-        "required": true,
-        "min": 1,
-        "max": 20,
-        "step": 1,
-        "default": 3,
-        "unit": "unite(s)"
-      },
-      {
-        "id": "material",
-        "type": "cards",
-        "label": "Materiau",
-        "subtitle": "Choisissez le materiau des menuiseries.",
-        "required": true,
-        "columns": 2,
-        "options": [
-          { "value": "pvc",   "label": "PVC",       "icon": "box" },
-          { "value": "alu",   "label": "Aluminium", "icon": "grid" },
-          { "value": "bois",  "label": "Bois",      "icon": "layers" },
-          { "value": "mixte", "label": "Mixte",     "icon": "server" }
-        ]
-      },
-      {
-        "id": "options",
-        "type": "multi",
-        "label": "Options",
-        "subtitle": "Optionnel.",
-        "required": false,
-        "options": [
-          { "value": "vitrage", "label": "Triple vitrage",  "icon": "layers" },
-          { "value": "volet",   "label": "Volets roulants", "icon": "sun" },
-          { "value": "pose",    "label": "Depose ancienne", "icon": "trash" },
-          { "value": "store",   "label": "Store integre",   "icon": "tool" }
-        ]
-      },
-      {
-        "id": "postalCode",
-        "type": "postal",
-        "label": "Votre code postal",
-        "subtitle": "Pour les tarifs regionaux.",
-        "required": true,
-        "placeholder": "75001"
-      }
-    ],
-    "pricing": {
-      "base_by_type": {
-        "fenetre": 450, "porte": 1200, "baie": 2200, "velux": 900
-      },
-      "material_multiplier": {
-        "pvc": 1.0, "alu": 1.3, "bois": 1.5, "mixte": 1.2
-      },
-      "options": {
-        "vitrage": 180, "volet": 350, "pose": 80, "store": 220
-      },
-      "regional_coefficients": { "75": 1.2, "69": 1.05, "default": 1.0 },
-      "margin_low": 0.9,
-      "margin_high": 1.15
-    }
-  }
+function getLicenses() {
+  return JSON.parse(fs.readFileSync(path.join(process.cwd(), "data", "licenses.json"), "utf-8"));
 }
+function getLeads() {
+  try { return JSON.parse(fs.readFileSync(path.join(process.cwd(), "data", "leads.json"), "utf-8")); }
+  catch { return []; }
+}
+function saveLead(lead) {
+  const leads = getLeads();
+  leads.push(lead);
+  fs.writeFileSync(path.join(process.cwd(), "data", "leads.json"), JSON.stringify(leads, null, 2));
+}
+
+module.exports = async (req, res) => {
+
+  // ── CORS en PREMIER ────────────────────────────────────
+  res.setHeader("Access-Control-Allow-Origin",  "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  if (req.method === "OPTIONS") return res.status(200).end();
+  if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
+
+  let licenses;
+  try {
+    licenses = getLicenses();
+  } catch (err) {
+    return res.status(500).json({ error: "Server configuration error" });
+  }
+
+  const { license, lead } = req.body || {};
+  if (!license || !lead) return res.status(400).json({ error: "Missing data" });
+
+  const config = licenses[license];
+  if (!config || !config.active) return res.status(403).json({ error: "Invalid license" });
+
+  const origin = req.headers.origin || "";
+  if (origin) {
+    const allowed = ["https://devisbox.vercel.app", ...(config.allowedOrigins || [])];
+    const isAllowed = allowed.includes(origin) || origin.startsWith("http://localhost") || origin.startsWith("http://127.0.0.1");
+    if (!isAllowed) return res.status(403).json({ error: "Origin not authorized" });
+  }
+
+  if (!lead.name?.trim() || lead.name.trim().length < 2) return res.status(400).json({ error: "Invalid name" });
+  if (!/^[\d\s\+\-\.]{8,20}$/.test(lead.phone))          return res.status(400).json({ error: "Invalid phone" });
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead.email))    return res.status(400).json({ error: "Invalid email" });
+
+  const saved = {
+    id:        `lead_${Date.now()}_${Math.random().toString(36).substr(2, 6)}`,
+    license,
+    trade:     config.trade,
+    name:      lead.name.trim(),
+    phone:     lead.phone.trim(),
+    email:     lead.email.trim().toLowerCase(),
+    answers:   lead.answers || {},
+    estimate:  lead.estimate || null,
+    createdAt: new Date().toISOString(),
+  };
+
+  try {
+    saveLead(saved);
+    return res.status(201).json({ success: true, leadId: saved.id });
+  } catch (err) {
+    console.error("[lead]", err);
+    return res.status(500).json({ error: "Failed to save lead" });
+  }
+};
+
