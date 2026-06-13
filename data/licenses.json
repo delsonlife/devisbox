@@ -5,9 +5,11 @@
       "name": "Couverture Paris Pro",
       "domain": "devis-couvreur1.vercel.app",
       "email": "contact@couvreur-paris.fr",
-      "phone": "01 23 45 67 89",
+      "phone": "01 23 45 67 89"
+    },
     "allowedOrigins": [
-      "https://devis-couvreur1.vercel.app"
+      "https://devis-couvreur1.vercel.app",
+      "https://devisbox.vercel.app"
     ],
     "branding": {
       "primaryColor": "#ff6b00",
@@ -21,19 +23,19 @@
         "id": "project",
         "type": "cards",
         "label": "Quel est votre projet ?",
-        "subtitle": "Sélectionnez le type de travaux souhaité.",
+        "subtitle": "Selectionnez le type de travaux souhaite.",
         "required": true,
         "options": [
-          { "value": "renovation", "label": "Réfection complète", "icon": "hard-hat" },
-          { "value": "repair",     "label": "Réparation",         "icon": "wrench" },
-          { "value": "cleaning",   "label": "Démoussage",         "icon": "brush" },
+          { "value": "renovation", "label": "Refection complete", "icon": "hard-hat" },
+          { "value": "repair",     "label": "Reparation",         "icon": "wrench" },
+          { "value": "cleaning",   "label": "Demolissage",        "icon": "brush" },
           { "value": "insulation", "label": "Isolation toiture",  "icon": "layers" }
         ]
       },
       {
         "id": "material",
         "type": "cards",
-        "label": "Quel matériau ?",
+        "label": "Quel materiau ?",
         "subtitle": "Choisissez le type de couverture de votre toit.",
         "required": true,
         "columns": 2,
@@ -47,53 +49,53 @@
       {
         "id": "surface",
         "type": "slider",
-        "label": "Surface estimée du toit",
-        "subtitle": "Déplacez le curseur pour ajuster la surface.",
+        "label": "Surface estimee du toit",
+        "subtitle": "Deplacez le curseur pour ajuster la surface.",
         "required": true,
         "min": 20,
         "max": 500,
         "step": 5,
         "default": 100,
-        "unit": "m²"
+        "unit": "m2"
       },
       {
         "id": "pans",
         "type": "cards",
         "label": "Nombre de pans",
-        "subtitle": "Un pan = une face inclinée du toit.",
+        "subtitle": "Un pan = une face inclinee du toit.",
         "required": true,
         "columns": 2,
         "options": [
-          { "value": "1",    "label": "1 pan",      "icon": "triangle" },
-          { "value": "2",    "label": "2 pans",     "icon": "home" },
-          { "value": "4",    "label": "4 pans",     "icon": "square" },
-          { "value": "more", "label": "Plus de 4",  "icon": "plus-square" }
+          { "value": "1",    "label": "1 pan",     "icon": "triangle" },
+          { "value": "2",    "label": "2 pans",    "icon": "home" },
+          { "value": "4",    "label": "4 pans",    "icon": "square" },
+          { "value": "more", "label": "Plus de 4", "icon": "plus-square" }
         ]
       },
       {
         "id": "accessibility",
         "type": "cards",
-        "label": "Accessibilité du chantier",
-        "subtitle": "Le niveau influence le coût d'installation.",
+        "label": "Accessibilite du chantier",
+        "subtitle": "Le niveau influence le cout installation.",
         "required": true,
         "options": [
-          { "value": "plain-pied", "label": "Plain-pied",        "icon": "home" },
-          { "value": "1-etage",    "label": "1 étage",           "icon": "arrow-up" },
-          { "value": "2-etages",   "label": "2 étages",          "icon": "chevrons-up" },
-          { "value": "plus",       "label": "Plus de 2 étages",  "icon": "building" }
+          { "value": "plain-pied", "label": "Plain-pied",       "icon": "home" },
+          { "value": "1-etage",    "label": "1 etage",          "icon": "arrow-up" },
+          { "value": "2-etages",   "label": "2 etages",         "icon": "chevrons-up" },
+          { "value": "plus",       "label": "Plus de 2 etages", "icon": "building" }
         ]
       },
       {
         "id": "options",
         "type": "multi",
-        "label": "Options souhaitées",
-        "subtitle": "Sélectionnez tout ce qui s'applique (optionnel).",
+        "label": "Options souhaitees",
+        "subtitle": "Selectionnez tout ce qui s'applique (optionnel).",
         "required": false,
         "options": [
           { "value": "velux",      "label": "Velux",                   "icon": "sun" },
-          { "value": "gouttieres", "label": "Gouttières",              "icon": "droplet" },
+          { "value": "gouttieres", "label": "Gouttieres",              "icon": "droplet" },
           { "value": "isolation",  "label": "Isolation",               "icon": "layers" },
-          { "value": "depose",     "label": "Dépose ancienne toiture", "icon": "trash" },
+          { "value": "depose",     "label": "Depose ancienne toiture", "icon": "trash" },
           { "value": "charpente",  "label": "Traitement charpente",    "icon": "tool" }
         ]
       },
@@ -101,7 +103,7 @@
         "id": "postalCode",
         "type": "postal",
         "label": "Votre code postal",
-        "subtitle": "Il nous permet d'appliquer les tarifs régionaux.",
+        "subtitle": "Il nous permet d'appliquer les tarifs regionaux.",
         "required": true,
         "placeholder": "75001"
       }
@@ -129,11 +131,15 @@
   "MOV001": {
     "active": true,
     "company": {
-      "name": "Déménagement Express",
+      "name": "Demenagement Express",
       "domain": "demenagement-express.fr",
       "email": "contact@demenagement-express.fr",
       "phone": "06 12 34 56 78"
     },
+    "allowedOrigins": [
+      "https://demenagement-express.fr",
+      "https://devisbox.vercel.app"
+    ],
     "branding": {
       "primaryColor": "#2563eb",
       "secondaryColor": "#0f172a",
@@ -145,20 +151,20 @@
       {
         "id": "volume",
         "type": "cards",
-        "label": "Volume à déménager",
+        "label": "Volume a demenager",
         "subtitle": "Estimez la taille de votre logement actuel.",
         "required": true,
         "options": [
-          { "value": "studio",  "label": "Studio / F1",  "icon": "home" },
-          { "value": "f2",      "label": "F2 / F3",      "icon": "home" },
-          { "value": "f4",      "label": "F4 / F5",      "icon": "building" },
-          { "value": "maison",  "label": "Grande maison", "icon": "building" }
+          { "value": "studio", "label": "Studio / F1",  "icon": "home" },
+          { "value": "f2",     "label": "F2 / F3",      "icon": "home" },
+          { "value": "f4",     "label": "F4 / F5",      "icon": "building" },
+          { "value": "maison", "label": "Grande maison", "icon": "building" }
         ]
       },
       {
         "id": "distance",
         "type": "slider",
-        "label": "Distance du déménagement",
+        "label": "Distance du demenagement",
         "subtitle": "Distance approximative entre les deux adresses.",
         "required": true,
         "min": 5,
@@ -170,35 +176,35 @@
       {
         "id": "floor_from",
         "type": "cards",
-        "label": "Étage au départ",
+        "label": "Etage au depart",
         "subtitle": "Y a-t-il un ascenseur ?",
         "required": true,
         "columns": 2,
         "options": [
-          { "value": "rdc",         "label": "Rez-de-chaussée", "icon": "home" },
-          { "value": "avec_asc",    "label": "Avec ascenseur",  "icon": "arrow-up" },
-          { "value": "sans_asc",    "label": "Sans ascenseur",  "icon": "chevrons-up" },
-          { "value": "plus4",       "label": "+ 4 étages",      "icon": "building" }
+          { "value": "rdc",      "label": "Rez-de-chaussee", "icon": "home" },
+          { "value": "avec_asc", "label": "Avec ascenseur",  "icon": "arrow-up" },
+          { "value": "sans_asc", "label": "Sans ascenseur",  "icon": "chevrons-up" },
+          { "value": "plus4",    "label": "+ 4 etages",      "icon": "building" }
         ]
       },
       {
         "id": "options",
         "type": "multi",
-        "label": "Services supplémentaires",
-        "subtitle": "Optionnel — cochez ce qui vous intéresse.",
+        "label": "Services supplementaires",
+        "subtitle": "Optionnel.",
         "required": false,
         "options": [
-          { "value": "emballage",  "label": "Emballage complet",   "icon": "box" },
-          { "value": "piano",      "label": "Piano / coffre-fort", "icon": "music" },
-          { "value": "garde",      "label": "Garde-meuble",        "icon": "lock" },
-          { "value": "montage",    "label": "Montage meubles",     "icon": "tool" }
+          { "value": "emballage", "label": "Emballage complet",   "icon": "box" },
+          { "value": "piano",     "label": "Piano / coffre-fort", "icon": "music" },
+          { "value": "garde",     "label": "Garde-meuble",        "icon": "lock" },
+          { "value": "montage",   "label": "Montage meubles",     "icon": "tool" }
         ]
       },
       {
         "id": "postalCode",
         "type": "postal",
-        "label": "Code postal de départ",
-        "subtitle": "Pour adapter les tarifs à votre région.",
+        "label": "Code postal de depart",
+        "subtitle": "Pour adapter les tarifs a votre region.",
         "required": true,
         "placeholder": "75001"
       }
@@ -228,6 +234,10 @@
       "email": "contact@menuiserie-leblanc.fr",
       "phone": "04 56 78 90 12"
     },
+    "allowedOrigins": [
+      "https://menuiserie-leblanc.fr",
+      "https://devisbox.vercel.app"
+    ],
     "branding": {
       "primaryColor": "#059669",
       "secondaryColor": "#064e3b",
@@ -244,36 +254,36 @@
         "required": true,
         "columns": 2,
         "options": [
-          { "value": "fenetre",   "label": "Fenêtre",       "icon": "square" },
-          { "value": "porte",     "label": "Porte d'entrée","icon": "home" },
-          { "value": "baie",      "label": "Baie vitrée",   "icon": "maximize" },
-          { "value": "velux",     "label": "Velux",         "icon": "sun" }
+          { "value": "fenetre", "label": "Fenetre",        "icon": "square" },
+          { "value": "porte",   "label": "Porte d'entree", "icon": "home" },
+          { "value": "baie",    "label": "Baie vitree",    "icon": "maximize" },
+          { "value": "velux",   "label": "Velux",          "icon": "sun" }
         ]
       },
       {
         "id": "quantity",
         "type": "slider",
         "label": "Nombre d'ouvertures",
-        "subtitle": "Combien d'unités souhaitez-vous remplacer ?",
+        "subtitle": "Combien d'unites souhaitez-vous remplacer ?",
         "required": true,
         "min": 1,
         "max": 20,
         "step": 1,
         "default": 3,
-        "unit": "unité(s)"
+        "unit": "unite(s)"
       },
       {
         "id": "material",
         "type": "cards",
-        "label": "Matériau",
-        "subtitle": "Choisissez le matériau des menuiseries.",
+        "label": "Materiau",
+        "subtitle": "Choisissez le materiau des menuiseries.",
         "required": true,
         "columns": 2,
         "options": [
-          { "value": "pvc",  "label": "PVC",       "icon": "box" },
-          { "value": "alu",  "label": "Aluminium", "icon": "grid" },
-          { "value": "bois", "label": "Bois",      "icon": "layers" },
-          { "value": "mixte","label": "Mixte",     "icon": "server" }
+          { "value": "pvc",   "label": "PVC",       "icon": "box" },
+          { "value": "alu",   "label": "Aluminium", "icon": "grid" },
+          { "value": "bois",  "label": "Bois",      "icon": "layers" },
+          { "value": "mixte", "label": "Mixte",     "icon": "server" }
         ]
       },
       {
@@ -283,17 +293,17 @@
         "subtitle": "Optionnel.",
         "required": false,
         "options": [
-          { "value": "vitrage",  "label": "Triple vitrage",    "icon": "layers" },
-          { "value": "volet",    "label": "Volets roulants",   "icon": "sun" },
-          { "value": "pose",     "label": "Dépose ancienne",   "icon": "trash" },
-          { "value": "store",    "label": "Store intégré",     "icon": "tool" }
+          { "value": "vitrage", "label": "Triple vitrage",  "icon": "layers" },
+          { "value": "volet",   "label": "Volets roulants", "icon": "sun" },
+          { "value": "pose",    "label": "Depose ancienne", "icon": "trash" },
+          { "value": "store",   "label": "Store integre",   "icon": "tool" }
         ]
       },
       {
         "id": "postalCode",
         "type": "postal",
         "label": "Votre code postal",
-        "subtitle": "Pour les tarifs régionaux.",
+        "subtitle": "Pour les tarifs regionaux.",
         "required": true,
         "placeholder": "75001"
       }
