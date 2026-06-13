@@ -78,8 +78,9 @@ module.exports = async (req, res) => {
 
   const requestDomain = extractDomain(origin);
   const allowedDomain = config.company.domain.replace(/^www\./, "");
-  const isLocal = !requestDomain || ["localhost", "127.0.0.1"].includes(requestDomain) || requestDomain.endsWith(".vercel.app");
-  if (!isLocal && requestDomain !== allowedDomain) return res.status(403).json({ error: "Domain not authorized" });
+  const OWNER_DOMAINS = ["devisbox.vercel.app", "localhost", "127.0.0.1"];
+  const isOwnerOrLocal = !requestDomain || OWNER_DOMAINS.includes(requestDomain);
+  if (!isOwnerOrLocal && requestDomain !== allowedDomain) return res.status(403).json({ error: "Domain not authorized" });
 
   if (!lead.name?.trim() || lead.name.trim().length < 2) return res.status(400).json({ error: "Invalid name" });
   if (!/^[\d\s\+\-\.]{8,20}$/.test(lead.phone)) return res.status(400).json({ error: "Invalid phone" });
